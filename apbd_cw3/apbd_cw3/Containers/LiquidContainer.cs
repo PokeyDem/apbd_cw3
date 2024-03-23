@@ -1,8 +1,9 @@
 ﻿using apbd_cw3.Exceptions;
+using apbd_cw3.Interfaces;
 
 namespace apbd_cw3.Containers;
 
-public class LiquidContainer : Container
+public class LiquidContainer : Container, IHazardNotifier
 {
     private static double ContainerCounter = 1;
 
@@ -39,6 +40,7 @@ public class LiquidContainer : Container
         else
         {
             Console.WriteLine("Can't load cargo. Weight exceeds the allowable");
+            NotifyAboutDangerousSituation("Attempting to load the container more than allowed");
         }
     }
 
@@ -52,6 +54,7 @@ public class LiquidContainer : Container
         else
         {
             Console.WriteLine("Can't load cargo. Weight exceeds the allowable");
+            NotifyAboutDangerousSituation("Attempting to load the container more than allowed");
         }
     }
 
@@ -87,5 +90,10 @@ public class LiquidContainer : Container
     public void ShowSerialNUmber()
     {
         Console.WriteLine(SerialNumber);
+    }
+
+    public void NotifyAboutDangerousSituation(string message)
+    {
+        Console.WriteLine("Warning, dangerous situation\n" + "Container number: \n" + message);
     }
 }

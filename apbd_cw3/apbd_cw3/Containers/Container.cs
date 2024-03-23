@@ -36,12 +36,14 @@ public abstract class Container : IContainer
     }
     public void ShowInfo()
     {
-        Console.WriteLine("SerialNumber: " + SerialNumber + 
+        Console.WriteLine("\n------------------------------------\n" +
+                          "SerialNumber: " + SerialNumber + 
                           "\nCargoWeight: " + CargoWeight +
                           "\nCargoHeight: " + CargoHeight +
                           "\nCargoType: " + CargoType +
                           "\nMaxCargoWeight: " + MaxCargoWeight +
                           "\nContainerWeight: " + ContainerWeight +
-                          "\nContainerDepth: " + ContainerDepth);
+                          "\nContainerDepth: " + ContainerDepth +
+                          "\n------------------------------------\n");
     }
 }

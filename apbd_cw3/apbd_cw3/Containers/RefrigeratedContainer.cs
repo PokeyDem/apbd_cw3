@@ -17,7 +17,7 @@ public class RefrigeratedContainer : Container
         : base(cargoWeight, cargoHeight, maxCargoWeight, containerWeight, containerDepth)
     {
         ContainerTemperature = containerTemperature;
-        SerialNumber += "R-" + ContainerCounter++;
+        SerialNumber += "C-" + ContainerCounter++;
     }
 
     public override void Load(Products product, double cargoWeight)
@@ -50,7 +50,7 @@ public class RefrigeratedContainer : Container
             return false;
         }
 
-        if (AllowedProductsWithTemperature[product] < ContainerTemperature)
+        if (AllowedProductsWithTemperature[product] > ContainerTemperature)
         {
             Console.WriteLine("Can't load product. Temperature in container lower than required");
             return false;

@@ -1,8 +1,9 @@
 using apbd_cw3.Exceptions;
+using apbd_cw3.Interfaces;
 
 namespace apbd_cw3.Containers;
 
-public class GasContainer : Container
+public class GasContainer : Container, IHazardNotifier
 {
     private static double ContainerCounter = 1;
 
@@ -31,6 +32,7 @@ public class GasContainer : Container
         
         if (CargoWeight + cargoWeight > MaxCargoWeight)
         {
+            NotifyAboutDangerousSituation("Container is overfilled");
             throw new OverfilledException();
         }
 
@@ -53,5 +55,10 @@ public class GasContainer : Container
     {
         CargoWeight = CargoWeight / 100 * 5;
         CargoType = null;
+    }
+
+    public void NotifyAboutDangerousSituation(string message)
+    {
+        Console.WriteLine("Warning, dangerous situation\n" + "Container number: \n" + message);
     }
 }
