@@ -94,6 +94,6 @@ public class LiquidContainer : Container, IHazardNotifier
 
     public void NotifyAboutDangerousSituation(string message)
     {
-        Console.WriteLine("Warning, dangerous situation\n" + "Container number: \n" + message);
+        Console.WriteLine("Warning, dangerous situation\n" + "Container number: " + SerialNumber + "\n" + message);
     }
 }

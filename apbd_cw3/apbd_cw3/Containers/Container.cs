@@ -3,7 +3,7 @@ using apbd_cw3.Interfaces;
 
 namespace apbd_cw3.Containers;
 
-public abstract class Container : IContainer
+public abstract class Container : IContainer, IShowInfo
 {
     public double CargoWeight { get; set; }
     public double CargoHeight { get; set; }
@@ -34,16 +34,15 @@ public abstract class Container : IContainer
     {
         throw new OverfilledException();
     }
-    public void ShowInfo()
+
+    public void ShowInformation()
     {
-        Console.WriteLine("\n------------------------------------\n" +
-                          "SerialNumber: " + SerialNumber + 
+        Console.WriteLine("\nSerialNumber: " + SerialNumber + 
                           "\nCargoWeight: " + CargoWeight +
                           "\nCargoHeight: " + CargoHeight +
                           "\nCargoType: " + CargoType +
                           "\nMaxCargoWeight: " + MaxCargoWeight +
                           "\nContainerWeight: " + ContainerWeight +
-                          "\nContainerDepth: " + ContainerDepth +
-                          "\n------------------------------------\n");
+                          "\nContainerDepth: " + ContainerDepth + "\n");
     }
 }

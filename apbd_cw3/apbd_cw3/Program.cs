@@ -1,32 +1,24 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
-
 using apbd_cw3;
 using apbd_cw3.Containers;
+using apbd_cw3.Ships;
 
-LiquidContainer lc1 = new LiquidContainer(0.0, 3.0, 5.0, 10.0, 5.0);
-lc1.ShowInfo();
-lc1.Load(Products.Fuel, 1);
-lc1.ShowInfo();
-lc1.Unload();
-lc1.ShowInfo();
+Console.WriteLine("");
 
-GasContainer sc1 = new GasContainer(0.0, 3.0, 5.0, 5.0, 5.0);
-sc1.ShowInfo();
-sc1.Load(Products.Helium, 1);
-sc1.ShowInfo();
-sc1.Unload();
-sc1.ShowInfo();
+LiquidContainer lq1 = new LiquidContainer(1,2,3,4,5);
+lq1.Load(Products.Milk, 1);
 
-RefrigeratedContainer rc1 = new RefrigeratedContainer(0.0, 3.0, 4.0, 4.0, 5.0, 5);
-rc1.ShowInfo();
-rc1.Load(Products.Meat, 1);
-rc1.ShowInfo();
-rc1.Unload();
-rc1.ShowInfo();
+CargoShip cargoShip = new CargoShip(10, 20);
 
-// var container = new Container(10.0,10.0)
-// {
-//     CargoWeight = 12.0
-// };
-//super() in java = base() in C#
+cargoShip.LoadContainer(lq1);
+
+RefrigeratedContainer rc1 = new RefrigeratedContainer(1, 4, 5, 6, 7, 10);
+rc1.Load(Products.Butter, 3);
+
+cargoShip.LoadContainer(rc1);
+cargoShip.ShowInformation();
+
+cargoShip.UnloadContainer(lq1);
+cargoShip.ShowInformation();
+
+rc1.ShowInformation();
