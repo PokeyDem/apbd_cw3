@@ -27,6 +27,7 @@ public class LiquidContainer : Container, IHazardNotifier
                     LoadDangerousProduct(product, cargoWeight);
                     break;
             }
+            Console.WriteLine("Container " + SerialNumber + " was loaded with " + product);
         }
     }
 
@@ -56,12 +57,6 @@ public class LiquidContainer : Container, IHazardNotifier
             Console.WriteLine("Can't load cargo. Weight exceeds the allowable");
             NotifyAboutDangerousSituation("Attempting to load the container more than allowed");
         }
-    }
-
-    public override void Unload()
-    {
-        CargoWeight = 0;
-        CargoType = null;
     }
     
     private bool MeetRequirements(Products product, double cargoWeight)

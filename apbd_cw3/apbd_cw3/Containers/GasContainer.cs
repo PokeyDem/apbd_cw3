@@ -24,6 +24,7 @@ public class GasContainer : Container, IHazardNotifier
             CargoWeight += cargoWeight;
             Pressure += cargoWeight * 0.2; //Fake formula to simulate pressure
             CargoType = product;
+            Console.WriteLine("Container " + SerialNumber + " was loaded with " + product);
         }
     }
     
@@ -55,6 +56,7 @@ public class GasContainer : Container, IHazardNotifier
     {
         CargoWeight = CargoWeight / 100 * 5;
         CargoType = null;
+        Console.WriteLine("Container " + SerialNumber + " was unloaded");
     }
 
     public void NotifyAboutDangerousSituation(string message)

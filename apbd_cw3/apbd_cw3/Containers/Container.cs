@@ -27,7 +27,9 @@ public abstract class Container : IContainer, IShowInfo
 
     public virtual void Unload()
     {
-        throw new NotImplementedException();
+        CargoType = null;
+        CargoWeight = 0;
+        Console.WriteLine("Container " + SerialNumber + " was unloaded");
     }
 
     public virtual void Load(Products products, double cargoWeight)
@@ -43,6 +45,6 @@ public abstract class Container : IContainer, IShowInfo
                           "\nCargoType: " + CargoType +
                           "\nMaxCargoWeight: " + MaxCargoWeight +
                           "\nContainerWeight: " + ContainerWeight +
-                          "\nContainerDepth: " + ContainerDepth + "\n");
+                          "\nContainerDepth: " + ContainerDepth);
     }
 }

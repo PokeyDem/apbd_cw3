@@ -3,22 +3,46 @@ using apbd_cw3;
 using apbd_cw3.Containers;
 using apbd_cw3.Ships;
 
-Console.WriteLine("");
+//Stworzenie kontenera danego typu
+LiquidContainer liquidContainer =  new LiquidContainer(0,300, 400, 250, 500);
 
-LiquidContainer lq1 = new LiquidContainer(1,2,3,4,5);
-lq1.Load(Products.Milk, 1);
+//Załadowanie ładunku do danego kontenera
+liquidContainer.Load(Products.Fuel, 200);
 
-CargoShip cargoShip = new CargoShip(10, 20);
+CargoShip cargoShip = new CargoShip(20, 100, 100);
 
-cargoShip.LoadContainer(lq1);
+//Załadowanie kontenera na statek
+cargoShip.LoadContainer(liquidContainer);
 
-RefrigeratedContainer rc1 = new RefrigeratedContainer(1, 4, 5, 6, 7, 10);
-rc1.Load(Products.Butter, 3);
+GasContainer gasContainer = new GasContainer(0, 250, 200, 150, 500);
+gasContainer.Load(Products.Oxygen, 140);
 
-cargoShip.LoadContainer(rc1);
+RefrigeratedContainer refrigeratedContainer = new RefrigeratedContainer(0, 320, 500, 170, 350, 15);
+refrigeratedContainer.Load(Products.Bananas, 400);
+
+List<Container> containers = new List<Container>();
+containers.Add(gasContainer);
+containers.Add(refrigeratedContainer);
+
+//Załadowanie listy kontenerów na statek
+cargoShip.LoadContainers(containers);
+
+//Usunięcie kontenera ze statku
+cargoShip.UnloadContainer(refrigeratedContainer);
+
+//Rozładowanie kontenera
+refrigeratedContainer.Unload();
+
+//Zastąpienie kontenera na statku o danym numerze innym kontenerem
+cargoShip.ReplaceContainer(0, refrigeratedContainer);
+
+CargoShip cargoShipTheSecond = new CargoShip(30, 150, 300);
+
+//Możliwość przeniesienie kontenera między dwoma statkami
+cargoShip.MoveContainerToOtherShip(1, cargoShipTheSecond);
+
+//Wypisanie informacji o danym kontenerze
+gasContainer.ShowInformation();
+
+//Wypisanie informacji o danym statku i jego ładunku
 cargoShip.ShowInformation();
-
-cargoShip.UnloadContainer(lq1);
-cargoShip.ShowInformation();
-
-rc1.ShowInformation();

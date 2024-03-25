@@ -26,7 +26,7 @@ public class RefrigeratedContainer : Container
         {
             CargoWeight += cargoWeight;
             CargoType = product;
-            Console.WriteLine("Product loaded");
+            Console.WriteLine("Container " + SerialNumber + " was loaded with " + product);
         }
     }
 
@@ -57,12 +57,6 @@ public class RefrigeratedContainer : Container
         }
 
         return true;
-    }
-
-    public override void Unload()
-    {
-        CargoType = null;
-        CargoWeight = 0;
     }
     
 }
